@@ -2,12 +2,11 @@ package main
 
 import (
 	"fmt"
+	"log/slog"
 	"os"
 
 	"github.com/janwillies/libplattentests-go/pkg/mainpage"
 	"github.com/janwillies/libplattentests-go/pkg/reviews"
-
-	"golang.org/x/exp/slog"
 )
 
 func main() {

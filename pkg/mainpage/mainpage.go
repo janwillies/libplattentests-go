@@ -135,10 +135,19 @@ func (mc *MainpageClient) getRezis(selector string) ([]int, error) {
 		if !exists {
 			return
 		}
-		id, errIn := findId(link)
+
+		// extract id from rezi.php?show=18373
+		_, idString, found := strings.Cut(link, "=")
+		if !found {
+			return
+		}
+
+		id, errIn := strconv.Atoi(idString)
 		if errIn != nil {
 			err = errIn
+			return
 		}
+
 		ids = append(ids, id)
 	})
 	return ids, err
@@ -167,14 +176,4 @@ func (mc *MainpageClient) getPreviews(selector string) ([]Preview, error) {
 		previews = append(previews, preview)
 	})
 	return previews, err
-}
-
-// extract id from rezi.php?show=18373
-func findId(link string) (int, error) {
-	idSlice := strings.SplitAfter(link, "=")
-	id, err := strconv.Atoi(idSlice[len(idSlice)-1])
-	if err != nil {
-		return 0, err
-	}
-	return id, nil
 }

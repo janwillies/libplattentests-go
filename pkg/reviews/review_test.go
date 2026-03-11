@@ -68,7 +68,7 @@ func TestGetReview(t *testing.T) {
 		// assertCorrectMessage(t, got.References[5], want.References[5])
 
 		if !cmp.Equal(got, want) {
-			t.Errorf("got %q want %q", got, want)
+			t.Errorf("got %+v want %+v", got, want)
 		}
 	})
 

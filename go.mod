@@ -1,8 +1,6 @@
 module github.com/janwillies/libplattentests-go
 
-go 1.24.0
-
-toolchain go1.24.3
+go 1.26.1
 
 require (
 	github.com/PuerkitoBio/goquery v1.11.0

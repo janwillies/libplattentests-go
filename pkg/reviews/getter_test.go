@@ -62,7 +62,7 @@ func TestGetJson(t *testing.T) {
 			ReviewBody: "Underworld, live and everything",
 		}
 		if !cmp.Equal(*got, want) {
-			t.Errorf("got %q want %q", *got, want)
+			t.Errorf("got %+v want %+v", *got, want)
 		}
 	})
 	t.Run("newer-review", func(t *testing.T) {
@@ -99,7 +99,7 @@ func TestGetJson(t *testing.T) {
 			ReviewBody: "Heilig's Krächle",
 		}
 		if !cmp.Equal(*got, want) {
-			t.Errorf("got %q want %q", *got, want)
+			t.Errorf("got %+v want %+v", *got, want)
 		}
 	})
 }
